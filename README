@@ -1,0 +1,5 @@
+This guide you to implement replica of nginx server with reverse proxy which cause load balance and ...
+Also if you want you can run command below in each worker node so no one can curl the site directly from container IP address and the Website is accessible withIP address of reverse proxy + port number which we defined " 8080 "
+iptables -A INPUT -p tcp --dport 8080 -j ACCEPT   #To allow the reverse proxy access to the containers
+iptables -A INPUT -p tcp --dport 80 -j DROP       #To deny containers port 80 directly
+
